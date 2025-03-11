@@ -6,4 +6,4 @@ def cotizacion(fichero):
     return pd.DataFrame([df.min(), df.max(), df.mean(), df.std()], index= ['Minimo', 'Maximo', 'Media', 'Desviacion estandar'])
 cotizacion(('./Estadistica descriptiva/cotizacion.csv'))
 
-print('./Estadistica descriptiva/cotizacion.csv')
+print(('./Estadistica descriptiva/cotizacion.csv'))
