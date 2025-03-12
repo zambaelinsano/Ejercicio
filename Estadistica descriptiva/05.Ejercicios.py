@@ -26,14 +26,20 @@ print("mediana: \n", medianapopularidad)
 print('La moda es:\n' , moda)
 print('el rango es:\n' , rango)
 
+
 mean_value = df['median_house_value'].mean()
 df['population_bins'] = pd.cut(df['population'], bins=20) 
 grouped = df.groupby('population_bins')['median_house_value'].mean().reset_index()
-plt.figure(figsize=(10, 6))
+
+
+
+
+plt.figure(figsize=(10, 9))
 sns.barplot(x=grouped['population_bins'].astype(str), y=grouped['median_house_value'], color='red' )
 plt.xticks(rotation=100)
 plt.title('Comparación de median house value y population')
 plt.xlabel('Population')
 plt.ylabel('Median_House_Value')
+plt.axhline(mean_value, color='red', linestyle='-', label=f'Promedio: {mean_value:.2f}')
 plt.legend()
 plt.show()
