@@ -1,6 +1,5 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 import seaborn as sns
 df=pd.read_csv('./Estadistica descriptiva/housing.csv')
 
@@ -30,11 +29,11 @@ print('el rango es:\n' , rango)
 mean_value = df['median_house_value'].mean()
 df['population_bins'] = pd.cut(df['population'], bins=20) 
 grouped = df.groupby('population_bins')['median_house_value'].mean().reset_index()
-plt.figure(figsize=(10, 4))
+plt.figure(figsize=(10, 6))
 sns.barplot(x=grouped['population_bins'].astype(str), y=grouped['median_house_value'], color='red' )
-plt.xticks(rotation=90)
+plt.xticks(rotation=100)
 plt.title('Comparación de median house value y population')
-plt.xlabel('Population (agrupada)')
-plt.ylabel('Median House Value')
+plt.xlabel('Population')
+plt.ylabel('Median_House_Value')
 plt.legend()
 plt.show()
